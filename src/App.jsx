@@ -1,18 +1,70 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // 1️⃣ DARK MODE TOGGLE
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
+
+  // 2️⃣ BACK TO TOP BUTTON (SHOW / HIDE ON SCROLL)
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 200) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 3️⃣ SMOOTH SCROLL FOR INTERNAL LINKS
+  useEffect(() => {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    const handleClick = (e) => {
+      e.preventDefault();
+      const target = document.querySelector(e.target.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    links.forEach((link) => link.addEventListener("click", handleClick));
+
+    return () =>
+      links.forEach((link) => link.removeEventListener("click", handleClick));
+  }, []);
+
+  // Scroll To Top
+  const goTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <header className="hero-section text-white text-center d-flex flex-column justify-content-center align-items-center position-relative">
-        {/*  THEME TOGGLE */}
+        {/* THEME TOGGLE */}
         <button
-          id="themeToggle"
+          onClick={() => setDarkMode(!darkMode)}
           className="btn btn-sm position-absolute top-0 end-0 m-3 btn-light"
         >
-          <i className="bi bi-moon-stars-fill"></i>
+          {darkMode ? (
+            <i className="bi bi-sun-fill"></i>
+          ) : (
+            <i className="bi bi-moon-stars-fill"></i>
+          )}
         </button>
 
-        {/* PROFILE IMAGE  */}
+        {/* PROFILE IMAGE */}
         <img
           src="./profile2.jpg"
           className="rounded-circle shadow"
@@ -73,6 +125,7 @@ function App() {
       </header>
 
       <div id="projects" className="portfolio container-sm text-center">
+        {/* your portfolio cards stay unchanged */}
         <div className="row align-items-start">
           <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
             <div className="shadow rounded bg-body-tertiary pb-3 bg-light">
@@ -84,7 +137,7 @@ function App() {
 
               <div className="p-2 bg-light">
                 <h6>Taskify</h6>
-                <p className="limit-text">
+                <p>
                   A modern task-tracking app built with React, featuring
                   filtering, persistence, and a fluid UI.
                 </p>
@@ -114,7 +167,7 @@ function App() {
               />
               <div className="p-2">
                 <h6>Backroads</h6>
-                <p className="limit-text">
+                <p>
                   A fully responsive tour website showcasing smooth navigation,
                   reusable components, and clean UI design.
                 </p>
@@ -136,10 +189,16 @@ function App() {
         </div>
       </div>
 
-      {/* Back to Top Button  */}
-      <a href="#" id="backToTop" className="btn btn-success rounded-circle">
-        &#8593;
-      </a>
+      {/* BACK TO TOP BUTTON */}
+      {showBackToTop && (
+        <button
+          onClick={goTop}
+          id="backToTop"
+          className="btn btn-success rounded-circle"
+        >
+          back to top↑
+        </button>
+      )}
     </>
   );
 }
