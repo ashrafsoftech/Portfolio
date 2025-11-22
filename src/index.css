@@ -1,0 +1,90 @@
+/* GLOBAL ----------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8fafc;
+  --text: #0f172a;
+}
+
+.dark-mode {
+  --bg: #0f172a;
+  --text: #f8fafc;
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+header {
+  background-color: #343a40;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  padding-bottom: 8em;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+.portfolio {
+  margin-top: 20px;
+}
+button.btn:hover a {
+  color: white !important;
+}
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f766e);
+  padding-top: 5rem;
+}
+
+/* Hover icon fade in */
+.hover-opacity:hover {
+  opacity: 1 !important;
+}
+
+/* Typing animation */
+.typing-text {
+  font-size: 1.6rem;
+  height: 40px;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  z-index: 999;
+  animation: zoom 1.2s infinite ease-in-out;
+}
+
+/* Zoom In / Zoom Out Animation */
+@keyframes zoom {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+#backToTop {
+  display: none;
+}
