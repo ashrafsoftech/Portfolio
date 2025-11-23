@@ -2,26 +2,28 @@ import { useState, useEffect } from "react";
 
 function TypingText() {
   const words = ["Frontend Developer", "React Developer", "Web Developer"];
-  const [index, setIndex] = useState(0); // which word
-  const [subIndex, setSubIndex] = useState(0); // typing position
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
-  const [speed, setSpeed] = useState(100); // typing speed
 
   useEffect(() => {
-    // ✅ When finished typing the word, pause before deleting
+    // ✅ Set speed based on typing or deleting
+    const speed = deleting ? 30 : 100;
+
+    // ✅ Finished typing → wait → start deleting
     if (!deleting && subIndex === words[index].length) {
-      setTimeout(() => setDeleting(true),1000);
+      setTimeout(() => setDeleting(true), 1000);
       return;
     }
 
-    // ✅ When finished deleting, move to next word
+    // ✅ Finished deleting → move to next word
     if (deleting && subIndex === 0) {
       setDeleting(false);
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
 
-    // ✅ Typing or deleting behavior
+    // ✅ Typing or deleting step
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (deleting ? -1 : 1));
     }, speed);
