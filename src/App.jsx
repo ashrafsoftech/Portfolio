@@ -109,7 +109,7 @@ function App() {
           </a>
           <a
             target="_blank"
-            href="#"
+            href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BCRE9g3C9SoW1ASEO2ayR3Q%3D%3D"
             className="text-white opacity-75 hover-opacity"
           >
             <i className="bi bi-linkedin"></i>
@@ -126,7 +126,7 @@ function App() {
 
       <div id="projects" className="portfolio container-sm text-center">
         {/* your portfolio cards stay unchanged */}
-        <div className="row align-items-start">
+        <div className="row justify-content-center align-items-start">
           <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
             <div className="shadow rounded bg-body-tertiary pb-3 bg-light">
               <img
@@ -196,7 +196,7 @@ function App() {
           id="backToTop"
           className="btn btn-success rounded-circle"
         >
-          back to top↑
+          ↑
         </button>
       )}
     </>

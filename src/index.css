@@ -13,8 +13,8 @@
 .dark-mode {
   --bg: #0f172a;
   --text: #f8fafc;
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f766e) !important;
+  color: black !important;
 }
 
 body {
@@ -58,6 +58,9 @@ button.btn:hover a {
   height: 40px;
 }
 
+#projects {
+  margin-bottom: 4em;
+}
 #backToTop {
   position: fixed;
   bottom: 30px;
@@ -85,7 +88,3 @@ button.btn:hover a {
     transform: translateX(-50%) scale(1);
   }
 }
-#backToTop {
-  display: none;
-}
-
