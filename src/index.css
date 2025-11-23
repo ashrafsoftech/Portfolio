@@ -53,10 +53,19 @@ button.btn:hover a {
 }
 
 /* Typing animation */
-.typing-text {
-  font-size: 1.6rem;
-  height: 40px;
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
 }
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
 
 #projects {
   margin-bottom: 4em;

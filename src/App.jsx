@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import TypingText from "./TypingText";
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -78,9 +80,7 @@ function App() {
 
         <h1 className="display-4 fw-bold mb-2">Hi, I'm Ashraf</h1>
 
-        <h2 className="typing-text mb-3">
-          <span id="typed"></span>
-        </h2>
+        <TypingText className="" />
 
         <p className="lead opacity-90 mb-4">
           I build fast, responsive and user-friendly web applications.
