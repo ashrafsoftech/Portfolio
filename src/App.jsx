@@ -92,7 +92,7 @@ function App() {
           </a>
           <a
             target="_blank"
-            href="https://wa.link/7fxynr"
+            href="mailto:dolaposoftech@gmail.com"
             className="btn btn-outline-light btn-lg px-4"
           >
             Hire Me
@@ -109,17 +109,24 @@ function App() {
           </a>
           <a
             target="_blank"
-            href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BCRE9g3C9SoW1ASEO2ayR3Q%3D%3D"
+            href="https://www.linkedin.com/in/ashraf-adedolapo-61645428b"
             className="text-white opacity-75 hover-opacity"
           >
             <i className="bi bi-linkedin"></i>
           </a>
           <a
             target="_blank"
-            href="https://wa.link/7fxynr"
+            href="https://wa.me/234816892838"
             className="text-white opacity-75 hover-opacity"
           >
-            <i className="bi bi-envelope-fill"></i>
+            <i className="bi bi-whatsapp"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://twitter.com/AsharfAriy44884"
+            className="text-white opacity-75 hover-opacity"
+          >
+            <i className="bi bi-twitter"></i>
           </a>
         </div>
       </header>
